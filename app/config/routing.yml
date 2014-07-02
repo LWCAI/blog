@@ -1,0 +1,8 @@
+site_front:
+    resource: "@SiteFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
+liwei_default:
+    resource: "@LiweiDefaultBundle/Resources/config/routing.yml"
+    prefix:   /blog
+

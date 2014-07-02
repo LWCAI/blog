@@ -1,0 +1,7 @@
+parameters:
+#    liwei_default.example.class: Liwei\DefaultBundle\Example
+
+services:
+#    liwei_default.example:
+#        class: %liwei_default.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

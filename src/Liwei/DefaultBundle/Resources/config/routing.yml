@@ -1,0 +1,3 @@
+liwei_default_homepage:
+    pattern:  /
+    defaults: { _controller: LiweiDefaultBundle:Default:index }
