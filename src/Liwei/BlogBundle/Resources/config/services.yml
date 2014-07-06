@@ -1,0 +1,7 @@
+parameters:
+#    liwei_blog.example.class: Liwei\BlogBundle\Example
+
+services:
+#    liwei_blog.example:
+#        class: %liwei_blog.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

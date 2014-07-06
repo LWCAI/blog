@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Liwei\DefaultBundle\LiweiDefaultBundle(),
             new Site\FrontBundle\SiteFrontBundle(),
             new Liwei\AdminBundle\LiweiAdminBundle(),
+            new Liwei\BlogBundle\LiweiBlogBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

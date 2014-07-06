@@ -1,6 +1,10 @@
+liwei_blog:
+    resource: "@LiweiBlogBundle/Resources/config/routing.yml"
+    prefix:   /blog/index
+
 liwei_admin:
     resource: "@LiweiAdminBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /blog/admin
 
 site_front:
     resource: "@SiteFrontBundle/Resources/config/routing.yml"
