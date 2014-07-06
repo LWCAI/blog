@@ -1,3 +1,7 @@
+liwei_admin:
+    resource: "@LiweiAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
 site_front:
     resource: "@SiteFrontBundle/Resources/config/routing.yml"
     prefix:   /

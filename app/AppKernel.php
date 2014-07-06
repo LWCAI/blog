@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Liwei\DefaultBundle\LiweiDefaultBundle(),
             new Site\FrontBundle\SiteFrontBundle(),
+            new Liwei\AdminBundle\LiweiAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
