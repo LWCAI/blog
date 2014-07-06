@@ -9,6 +9,7 @@ class DefaultController extends Controller
      
     public function indexAction()
     {
+        $test= '';
         $name = "Blog";
         return $this->render('LiweiDefaultBundle:Default:index.html.twig', array('name' => $name));
     }
