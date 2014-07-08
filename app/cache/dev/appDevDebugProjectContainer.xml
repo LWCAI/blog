@@ -442,10 +442,19 @@
     <parameter key="assetic.write_to">/Users/Liwei/Sites/Symfony/app/../web</parameter>
     <parameter key="assetic.variables" type="collection"/>
     <parameter key="assetic.java.bin">/usr/bin/java</parameter>
-    <parameter key="assetic.node.bin">/usr/local/bin/node</parameter>
+    <parameter key="assetic.node.bin">/usr/bin/node</parameter>
     <parameter key="assetic.ruby.bin">/usr/bin/ruby</parameter>
     <parameter key="assetic.sass.bin">/usr/bin/sass</parameter>
     <parameter key="assetic.filter.cssrewrite.class">Assetic\Filter\CssRewriteFilter</parameter>
+    <parameter key="assetic.filter.less.class">Assetic\Filter\LessFilter</parameter>
+    <parameter key="assetic.filter.less.node">/usr/local/bin</parameter>
+    <parameter key="assetic.filter.less.node_paths" type="collection"/>
+    <parameter key="assetic.filter.less.timeout">null</parameter>
+    <parameter key="assetic.filter.less.compress">null</parameter>
+    <parameter key="assetic.filter.less.node_path" type="collection">
+      <parameter>/usr/local/lib/node</parameter>
+      <parameter>/usr/local/lib/node_modules</parameter>
+    </parameter>
     <parameter key="assetic.twig_extension.functions" type="collection"/>
     <parameter key="assetic.controller.class">Symfony\Bundle\AsseticBundle\Controller\AsseticController</parameter>
     <parameter key="assetic.routing_loader.class">Symfony\Bundle\AsseticBundle\Routing\AsseticLoader</parameter>
@@ -2182,6 +2191,7 @@
       <argument type="service" id="service_container"/>
       <argument type="collection">
         <argument key="cssrewrite">assetic.filter.cssrewrite</argument>
+        <argument key="less">assetic.filter.less</argument>
       </argument>
     </service>
     <service id="assetic.asset_manager" class="Assetic\Factory\LazyAssetManager">
@@ -2241,6 +2251,17 @@
     </service>
     <service id="assetic.filter.cssrewrite" class="Assetic\Filter\CssRewriteFilter">
       <tag name="assetic.filter" alias="cssrewrite"/>
+    </service>
+    <service id="assetic.filter.less" class="Assetic\Filter\LessFilter">
+      <tag name="assetic.filter" alias="less"/>
+      <argument>/usr/local/bin</argument>
+      <argument type="collection"/>
+      <call method="setTimeout">
+        <argument>null</argument>
+      </call>
+      <call method="setCompress">
+        <argument>null</argument>
+      </call>
     </service>
     <service id="assetic.controller" class="Symfony\Bundle\AsseticBundle\Controller\AsseticController" scope="prototype">
       <argument type="service" id="request"/>

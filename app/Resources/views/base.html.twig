@@ -3,8 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        
+        {% stylesheets '@SiteFrontBundle/Resources/public/less/bootstrap.less' %}
+            <link href="{{ asset_url}}" rel= "stylesheets" media="screen" />
+        {% endstylesheets %}
     </head>
     <body>
         {% block body %}{% endblock %}
