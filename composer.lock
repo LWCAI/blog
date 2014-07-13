@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0f5bf28fac35560dbdb2e597d32df056",
+    "hash": "236de7002598e672e6f98043f40d0624",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -555,16 +555,16 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "v2.4.3",
+            "version": "v2.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "8a13376d42b5ea467727ffe730aa0e14ca3c5e29"
+                "reference": "fc19c3b53dcd00e6584db40669fdd699c4671f97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/8a13376d42b5ea467727ffe730aa0e14ca3c5e29",
-                "reference": "8a13376d42b5ea467727ffe730aa0e14ca3c5e29",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/fc19c3b53dcd00e6584db40669fdd699c4671f97",
+                "reference": "fc19c3b53dcd00e6584db40669fdd699c4671f97",
                 "shasum": ""
             },
             "require": {
@@ -627,7 +627,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2014-06-10 11:49:08"
+            "time": "2014-07-11 03:05:53"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -869,6 +869,123 @@
                 "psr-3"
             ],
             "time": "2014-06-04 16:30:04"
+        },
+        {
+            "name": "mopa/bootstrap-bundle",
+            "version": "dev-master",
+            "target-dir": "Mopa/Bundle/BootstrapBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phiamo/MopaBootstrapBundle.git",
+                "reference": "9860ea78d9c0a302523c430d14a03eeb3c71f951"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phiamo/MopaBootstrapBundle/zipball/9860ea78d9c0a302523c430d14a03eeb3c71f951",
+                "reference": "9860ea78d9c0a302523c430d14a03eeb3c71f951",
+                "shasum": ""
+            },
+            "require": {
+                "mopa/composer-bridge": "~1.3",
+                "symfony/console": "~2.3",
+                "symfony/form": "~2.3",
+                "symfony/framework-bundle": "~2.3",
+                "symfony/twig-bundle": "~2.3"
+            },
+            "suggest": {
+                "craue/formflow-bundle": "~2.0",
+                "knplabs/knp-menu-bundle": "~2.0@dev",
+                "knplabs/knp-paginator-bundle": "~2.3",
+                "mopa/bootstrap-sandbox-bundle": "~2.3",
+                "twbs/bootstrap": ">2.0,<4.0-dev",
+                "twbs/bootstrap-sass": "v3.1.1"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Mopa\\Bundle\\BootstrapBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Philipp A. Mohrenweiser",
+                    "email": "phiamo@googlemail.com",
+                    "homepage": "http://bootstrap.mohrenweiserpartner.de"
+                },
+                {
+                    "name": "Community contributions",
+                    "homepage": "https://github.com/phiamo/MopaBootstrapBundle/contributors"
+                }
+            ],
+            "description": "Easy integration of twitters bootstrap into symfony2",
+            "keywords": [
+                "bootstrap",
+                "bootstrap form",
+                "extra form",
+                "form",
+                "template"
+            ],
+            "time": "2014-07-10 11:37:58"
+        },
+        {
+            "name": "mopa/composer-bridge",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phiamo/MopaComposerBridge.git",
+                "reference": "4ce791bfeabc5261da11cf4a949745d60dae711f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phiamo/MopaComposerBridge/zipball/4ce791bfeabc5261da11cf4a949745d60dae711f",
+                "reference": "4ce791bfeabc5261da11cf4a949745d60dae711f",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/console": "2.*"
+            },
+            "type": "symfony-bridge",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Mopa\\Bridge\\Composer": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Philipp A. Mohrenweiser",
+                    "email": "phiamo@googlemail.com",
+                    "homepage": "http://bootstrap.mohrenweiserpartner.de"
+                },
+                {
+                    "name": "Community contributions",
+                    "homepage": "https://github.com/phiamo/MopaComposerBridge/contributors"
+                }
+            ],
+            "description": "Symfony2 Composer Bridge",
+            "homepage": "http://bootstrap.mohrenweiserpartner.de",
+            "keywords": [
+                "Symfony2",
+                "composer"
+            ],
+            "time": "2013-09-10 10:06:34"
         },
         {
             "name": "psr/log",
@@ -1143,20 +1260,21 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.0.1",
+            "version": "v1.2.1",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "fdba214b1e087c149843bde976263c53ac10c975"
+                "reference": "98e197da54df1f966dd5e8a4992135703569c987"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/fdba214b1e087c149843bde976263c53ac10c975",
-                "reference": "fdba214b1e087c149843bde976263c53ac10c975",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/98e197da54df1f966dd5e8a4992135703569c987",
+                "reference": "98e197da54df1f966dd5e8a4992135703569c987",
                 "shasum": ""
             },
             "require": {
+                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -1186,7 +1304,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-10-04 09:12:07"
+            "time": "2013-10-04 10:06:38"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -1309,16 +1427,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.5.0",
+            "version": "v2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "59365832a09a1d914d14cbca6a21a7f572760c3b"
+                "reference": "e3d2844abc988bc467bb1593cd340700096b0ac0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/59365832a09a1d914d14cbca6a21a7f572760c3b",
-                "reference": "59365832a09a1d914d14cbca6a21a7f572760c3b",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/e3d2844abc988bc467bb1593cd340700096b0ac0",
+                "reference": "e3d2844abc988bc467bb1593cd340700096b0ac0",
                 "shasum": ""
             },
             "require": {
@@ -1326,7 +1444,7 @@
                 "php": ">=5.3.3",
                 "psr/log": "~1.0",
                 "symfony/icu": "~1.0",
-                "twig/twig": "~1.11"
+                "twig/twig": "~1.12"
             },
             "replace": {
                 "symfony/browser-kit": "self.version",
@@ -1421,7 +1539,49 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-05-31 18:45:50"
+            "time": "2014-07-08 14:42:08"
+        },
+        {
+            "name": "twbs/bootstrap",
+            "version": "v3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "6d03173a1aad98e75f7d33e65b411c519176c59a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/6d03173a1aad98e75f7d33e65b411c519176c59a",
+                "reference": "6d03173a1aad98e75f7d33e65b411c519176c59a",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                },
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                }
+            ],
+            "description": "Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.",
+            "homepage": "http://getbootstrap.com",
+            "keywords": [
+                "bootstrap",
+                "css"
+            ],
+            "time": "2013-12-05 16:09:10"
         },
         {
             "name": "twig/extensions",
@@ -1581,17 +1741,13 @@
             "time": "2014-04-28 14:01:06"
         }
     ],
-    "aliases": [
-
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "mopa/bootstrap-bundle": 20
+    },
     "platform": {
         "php": ">=5.3.3"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }
