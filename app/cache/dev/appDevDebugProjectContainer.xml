@@ -16,6 +16,7 @@
       <parameter key="AsseticBundle">Symfony\Bundle\AsseticBundle\AsseticBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
+      <parameter key="MopaBootstrapBundle">Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle</parameter>
       <parameter key="LiweiDefaultBundle">Liwei\DefaultBundle\LiweiDefaultBundle</parameter>
       <parameter key="SiteFrontBundle">Site\FrontBundle\SiteFrontBundle</parameter>
       <parameter key="LiweiAdminBundle">Liwei\AdminBundle\LiweiAdminBundle</parameter>
@@ -36,7 +37,7 @@
     <parameter key="mailer_host">127.0.0.1</parameter>
     <parameter key="mailer_user">null</parameter>
     <parameter key="mailer_password">null</parameter>
-    <parameter key="locale">en</parameter>
+    <parameter key="locale">fr</parameter>
     <parameter key="secret">ThisTokenIsNotSoSecretChangeIt</parameter>
     <parameter key="debug_toolbar">true</parameter>
     <parameter key="debug_redirects">false</parameter>
@@ -99,7 +100,7 @@
     <parameter key="kernel.http_method_override">true</parameter>
     <parameter key="kernel.trusted_hosts" type="collection"/>
     <parameter key="kernel.trusted_proxies" type="collection"/>
-    <parameter key="kernel.default_locale">en</parameter>
+    <parameter key="kernel.default_locale">fr</parameter>
     <parameter key="session.class">Symfony\Component\HttpFoundation\Session\Session</parameter>
     <parameter key="session.flashbag.class">Symfony\Component\HttpFoundation\Session\Flash\FlashBag</parameter>
     <parameter key="session.attribute_bag.class">Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag</parameter>
@@ -532,6 +533,12 @@
     <parameter key="sensio_framework_extra.converter.doctrine.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter</parameter>
     <parameter key="sensio_framework_extra.converter.datetime.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter</parameter>
     <parameter key="sensio_framework_extra.view.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener</parameter>
+    <parameter key="mopa_bootstrap.bootstrap.install_path">Resources/public/bootstrap</parameter>
+    <parameter key="mopa_bootstrap.twig.extension.form.class">Mopa\Bundle\BootstrapBundle\Twig\FormExtension</parameter>
+    <parameter key="mopa_bootstrap.twig.extension.icon.class">Mopa\Bundle\BootstrapBundle\Twig\IconExtension</parameter>
+    <parameter key="mopa_bootstrap.twig.extension.flash.class">Mopa\Bundle\BootstrapBundle\Twig\FlashExtension</parameter>
+    <parameter key="mopa_bootstrap.icons.icon_set">glyphicons</parameter>
+    <parameter key="mopa_bootstrap.icons.shortcut">icon</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -607,7 +614,7 @@
     </service>
     <service id="locale_listener" class="Symfony\Component\HttpKernel\EventListener\LocaleListener">
       <tag name="kernel.event_subscriber"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument type="service" id="router" on-invalid="ignore"/>
       <argument type="service" id="request_stack"/>
     </service>
@@ -2142,6 +2149,15 @@
         </argument>
       </call>
       <call method="addExtension">
+        <argument type="service" id="mopa_bootstrap.twig.extension.bootstrap_form"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="mopa_bootstrap.twig.extension.bootstrap_icon"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="mopa_bootstrap.twig.extension.bootstrap_flash"/>
+      </call>
+      <call method="addExtension">
         <argument type="service">
           <service class="Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension" public="false">
             <tag name="twig.extension"/>
@@ -2493,6 +2509,26 @@
       <argument type="service" id="security.authentication.trust_resolver" on-invalid="null"/>
       <argument type="service" id="security.role_hierarchy" on-invalid="null"/>
     </service>
+    <service id="mopa_bootstrap.twig.extension.bootstrap_form" class="Mopa\Bundle\BootstrapBundle\Twig\FormExtension">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="mopa_bootstrap.twig.extension.bootstrap_icon" class="Mopa\Bundle\BootstrapBundle\Twig\IconExtension">
+      <tag name="twig.extension"/>
+      <argument>glyphicons</argument>
+      <argument>icon</argument>
+    </service>
+    <service id="mopa_bootstrap.twig.extension.bootstrap_flash" class="Mopa\Bundle\BootstrapBundle\Twig\FlashExtension">
+      <tag name="twig.extension"/>
+      <argument type="collection">
+        <argument key="success">success</argument>
+        <argument key="error">danger</argument>
+        <argument key="danger">danger</argument>
+        <argument key="warning">warning</argument>
+        <argument key="warn">warning</argument>
+        <argument key="info">info</argument>
+        <argument key="notice">info</argument>
+      </argument>
+    </service>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router" on-invalid="null"/>
       <argument type="service" id="profiler" on-invalid="null"/>
@@ -2801,6 +2837,10 @@
       <call method="addPath">
         <argument>D:\Program Files\wamp\www\Symfony\vendor\doctrine\doctrine-bundle\Doctrine\Bundle\DoctrineBundle/Resources/views</argument>
         <argument>Doctrine</argument>
+      </call>
+      <call method="addPath">
+        <argument>D:\Program Files\wamp\www\Symfony\vendor\mopa\bootstrap-bundle\Mopa\Bundle\BootstrapBundle/Resources/views</argument>
+        <argument>MopaBootstrap</argument>
       </call>
       <call method="addPath">
         <argument>D:\Program Files\wamp\www\Symfony\src\Liwei\DefaultBundle/Resources/views</argument>

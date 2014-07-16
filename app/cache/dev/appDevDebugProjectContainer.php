@@ -139,6 +139,9 @@ class appDevDebugProjectContainer extends Container
             'monolog.logger.scream' => 'getMonolog_Logger_ScreamService',
             'monolog.logger.security' => 'getMonolog_Logger_SecurityService',
             'monolog.logger.templating' => 'getMonolog_Logger_TemplatingService',
+            'mopa_bootstrap.twig.extension.bootstrap_flash' => 'getMopaBootstrap_Twig_Extension_BootstrapFlashService',
+            'mopa_bootstrap.twig.extension.bootstrap_form' => 'getMopaBootstrap_Twig_Extension_BootstrapFormService',
+            'mopa_bootstrap.twig.extension.bootstrap_icon' => 'getMopaBootstrap_Twig_Extension_BootstrapIconService',
             'profiler' => 'getProfilerService',
             'profiler_listener' => 'getProfilerListenerService',
             'property_accessor' => 'getPropertyAccessorService',
@@ -1489,7 +1492,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getLocaleListenerService()
     {
-        return $this->services['locale_listener'] = new \Symfony\Component\HttpKernel\EventListener\LocaleListener('en', $this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('request_stack'));
+        return $this->services['locale_listener'] = new \Symfony\Component\HttpKernel\EventListener\LocaleListener('fr', $this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('request_stack'));
     }
 
     /**
@@ -1738,6 +1741,45 @@ class appDevDebugProjectContainer extends Container
         $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
+    }
+
+    /**
+     * Gets the 'mopa_bootstrap.twig.extension.bootstrap_flash' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Mopa\Bundle\BootstrapBundle\Twig\FlashExtension A Mopa\Bundle\BootstrapBundle\Twig\FlashExtension instance.
+     */
+    protected function getMopaBootstrap_Twig_Extension_BootstrapFlashService()
+    {
+        return $this->services['mopa_bootstrap.twig.extension.bootstrap_flash'] = new \Mopa\Bundle\BootstrapBundle\Twig\FlashExtension(array('success' => 'success', 'error' => 'danger', 'danger' => 'danger', 'warning' => 'warning', 'warn' => 'warning', 'info' => 'info', 'notice' => 'info'));
+    }
+
+    /**
+     * Gets the 'mopa_bootstrap.twig.extension.bootstrap_form' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Mopa\Bundle\BootstrapBundle\Twig\FormExtension A Mopa\Bundle\BootstrapBundle\Twig\FormExtension instance.
+     */
+    protected function getMopaBootstrap_Twig_Extension_BootstrapFormService()
+    {
+        return $this->services['mopa_bootstrap.twig.extension.bootstrap_form'] = new \Mopa\Bundle\BootstrapBundle\Twig\FormExtension();
+    }
+
+    /**
+     * Gets the 'mopa_bootstrap.twig.extension.bootstrap_icon' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Mopa\Bundle\BootstrapBundle\Twig\IconExtension A Mopa\Bundle\BootstrapBundle\Twig\IconExtension instance.
+     */
+    protected function getMopaBootstrap_Twig_Extension_BootstrapIconService()
+    {
+        return $this->services['mopa_bootstrap.twig.extension.bootstrap_icon'] = new \Mopa\Bundle\BootstrapBundle\Twig\IconExtension('glyphicons', 'icon');
     }
 
     /**
@@ -3031,6 +3073,9 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Twig_Extension_Debug());
         $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), true, array(), array(), $this->get('assetic.value_supplier.default', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
         $instance->addExtension(new \Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension());
+        $instance->addExtension($this->get('mopa_bootstrap.twig.extension.bootstrap_form'));
+        $instance->addExtension($this->get('mopa_bootstrap.twig.extension.bootstrap_icon'));
+        $instance->addExtension($this->get('mopa_bootstrap.twig.extension.bootstrap_flash'));
         $instance->addExtension(new \Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension());
         $instance->addGlobal('app', $this->get('templating.globals'));
 
@@ -3080,6 +3125,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('D:\\Program Files\\wamp\\www\\Symfony\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views', 'Twig');
         $instance->addPath('D:\\Program Files\\wamp\\www\\Symfony\\vendor\\symfony\\swiftmailer-bundle\\Symfony\\Bundle\\SwiftmailerBundle/Resources/views', 'Swiftmailer');
         $instance->addPath('D:\\Program Files\\wamp\\www\\Symfony\\vendor\\doctrine\\doctrine-bundle\\Doctrine\\Bundle\\DoctrineBundle/Resources/views', 'Doctrine');
+        $instance->addPath('D:\\Program Files\\wamp\\www\\Symfony\\vendor\\mopa\\bootstrap-bundle\\Mopa\\Bundle\\BootstrapBundle/Resources/views', 'MopaBootstrap');
         $instance->addPath('D:\\Program Files\\wamp\\www\\Symfony\\src\\Liwei\\DefaultBundle/Resources/views', 'LiweiDefault');
         $instance->addPath('D:\\Program Files\\wamp\\www\\Symfony\\src\\Site\\FrontBundle/Resources/views', 'SiteFront');
         $instance->addPath('D:\\Program Files\\wamp\\www\\Symfony\\src\\Liwei\\AdminBundle/Resources/views', 'LiweiAdmin');
@@ -3570,6 +3616,7 @@ class appDevDebugProjectContainer extends Container
                 'AsseticBundle' => 'Symfony\\Bundle\\AsseticBundle\\AsseticBundle',
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
+                'MopaBootstrapBundle' => 'Mopa\\Bundle\\BootstrapBundle\\MopaBootstrapBundle',
                 'LiweiDefaultBundle' => 'Liwei\\DefaultBundle\\LiweiDefaultBundle',
                 'SiteFrontBundle' => 'Site\\FrontBundle\\SiteFrontBundle',
                 'LiweiAdminBundle' => 'Liwei\\AdminBundle\\LiweiAdminBundle',
@@ -3590,7 +3637,7 @@ class appDevDebugProjectContainer extends Container
             'mailer_host' => '127.0.0.1',
             'mailer_user' => NULL,
             'mailer_password' => NULL,
-            'locale' => 'en',
+            'locale' => 'fr',
             'secret' => 'ThisTokenIsNotSoSecretChangeIt',
             'debug_toolbar' => true,
             'debug_redirects' => false,
@@ -3657,7 +3704,7 @@ class appDevDebugProjectContainer extends Container
             'kernel.trusted_proxies' => array(
 
             ),
-            'kernel.default_locale' => 'en',
+            'kernel.default_locale' => 'fr',
             'session.class' => 'Symfony\\Component\\HttpFoundation\\Session\\Session',
             'session.flashbag.class' => 'Symfony\\Component\\HttpFoundation\\Session\\Flash\\FlashBag',
             'session.attribute_bag.class' => 'Symfony\\Component\\HttpFoundation\\Session\\Attribute\\AttributeBag',
@@ -4106,6 +4153,12 @@ class appDevDebugProjectContainer extends Container
             'sensio_framework_extra.converter.doctrine.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DoctrineParamConverter',
             'sensio_framework_extra.converter.datetime.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DateTimeParamConverter',
             'sensio_framework_extra.view.listener.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\TemplateListener',
+            'mopa_bootstrap.bootstrap.install_path' => 'Resources/public/bootstrap',
+            'mopa_bootstrap.twig.extension.form.class' => 'Mopa\\Bundle\\BootstrapBundle\\Twig\\FormExtension',
+            'mopa_bootstrap.twig.extension.icon.class' => 'Mopa\\Bundle\\BootstrapBundle\\Twig\\IconExtension',
+            'mopa_bootstrap.twig.extension.flash.class' => 'Mopa\\Bundle\\BootstrapBundle\\Twig\\FlashExtension',
+            'mopa_bootstrap.icons.icon_set' => 'glyphicons',
+            'mopa_bootstrap.icons.shortcut' => 'icon',
             'web_profiler.controller.profiler.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ProfilerController',
             'web_profiler.controller.router.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\RouterController',
             'web_profiler.controller.exception.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ExceptionController',
