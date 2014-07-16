@@ -4,8 +4,69 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "236de7002598e672e6f98043f40d0624",
+    "hash": "2b8819457f6ada5c5c5fe8859bb9bf93",
     "packages": [
+        {
+            "name": "craue/formflow-bundle",
+            "version": "dev-master",
+            "target-dir": "Craue/FormFlowBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/craue/CraueFormFlowBundle.git",
+                "reference": "bbd6c8086bd192b2df4a092f99349a49fa132400"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/craue/CraueFormFlowBundle/zipball/bbd6c8086bd192b2df4a092f99349a49fa132400",
+                "reference": "bbd6c8086bd192b2df4a092f99349a49fa132400",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/form": "~2.1",
+                "symfony/http-kernel": "~2.1",
+                "symfony/translation": "~2.1",
+                "symfony/yaml": "~2.1"
+            },
+            "require-dev": {
+                "doctrine/common": "~2.3",
+                "phpunit/phpunit": "~4.1",
+                "sensio/framework-extra-bundle": ">=2.1",
+                "symfony/symfony": "~2.1"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Craue\\FormFlowBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Raue",
+                    "email": "christian.raue@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://github.com/craue/CraueFormFlowBundle/contributors"
+                }
+            ],
+            "description": "Multi-step forms for your Symfony2 project.",
+            "homepage": "https://github.com/craue/CraueFormFlowBundle",
+            "keywords": [
+                "Symfony2",
+                "form"
+            ],
+            "time": "2014-07-14 18:06:38"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.2.0",
@@ -732,6 +793,119 @@
             "time": "2014-01-12 16:20:24"
         },
         {
+            "name": "knplabs/knp-menu",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/KnpMenu.git",
+                "reference": "f8e867268f63f561c1adadd6cbb5d8524f921873"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/f8e867268f63f561c1adadd6cbb5d8524f921873",
+                "reference": "f8e867268f63f561c1adadd6cbb5d8524f921873",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "pimple/pimple": "*",
+                "silex/silex": "1.0.*",
+                "twig/twig": ">=1.2,<2.0-dev"
+            },
+            "suggest": {
+                "pimple/pimple": "for the built-in implementations of the menu provider and renderer provider",
+                "silex/silex": "for the integration with your silex application",
+                "twig/twig": "for the TwigRenderer and the integration with your templates"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Menu\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                },
+                {
+                    "name": "KnpLabs",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://github.com/KnpLabs/KnpMenu/contributors"
+                }
+            ],
+            "description": "An object oriented menu library",
+            "homepage": "http://knplabs.com",
+            "keywords": [
+                "menu",
+                "tree"
+            ],
+            "time": "2012-06-10 16:20:40"
+        },
+        {
+            "name": "knplabs/knp-menu-bundle",
+            "version": "v1.1.2",
+            "target-dir": "Knp/Bundle/MenuBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
+                "reference": "2fecac02614e5a006f674dd5dd754eeaeca060b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/2fecac02614e5a006f674dd5dd754eeaeca060b9",
+                "reference": "2fecac02614e5a006f674dd5dd754eeaeca060b9",
+                "shasum": ""
+            },
+            "require": {
+                "knplabs/knp-menu": "~1.1",
+                "symfony/framework-bundle": "~2.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Bundle\\MenuBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                },
+                {
+                    "name": "Knplabs",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://github.com/KnpLabs/KnpMenuBundle/contributors"
+                }
+            ],
+            "description": "This bundle provides an integration of the KnpMenu library",
+            "keywords": [
+                "menu"
+            ],
+            "time": "2013-05-25 10:20:03"
+        },
+        {
             "name": "kriswallsmith/assetic",
             "version": "v1.1.2",
             "source": {
@@ -1427,16 +1601,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.5.1",
+            "version": "v2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "e3d2844abc988bc467bb1593cd340700096b0ac0"
+                "reference": "e66ee967571b89234c90946fe0d50dad195ad29c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/e3d2844abc988bc467bb1593cd340700096b0ac0",
-                "reference": "e3d2844abc988bc467bb1593cd340700096b0ac0",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/e66ee967571b89234c90946fe0d50dad195ad29c",
+                "reference": "e66ee967571b89234c90946fe0d50dad195ad29c",
                 "shasum": ""
             },
             "require": {
@@ -1539,7 +1713,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-07-08 14:42:08"
+            "time": "2014-07-15 15:39:46"
         },
         {
             "name": "twbs/bootstrap",
@@ -1744,7 +1918,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "mopa/bootstrap-bundle": 20
+        "mopa/bootstrap-bundle": 20,
+        "craue/formflow-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"
