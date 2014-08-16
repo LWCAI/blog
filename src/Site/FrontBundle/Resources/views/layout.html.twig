@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        {% stylesheets filter='less'
+            '@SiteFrontBundle/Resources/public/less/bootstrap.less'
+        %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+        {% endstylesheets %}
+        <link href="{{ asset('bundles/sitefront/css/header.css')}}" rel="stylesheet" media="screen" />
+
+        {% block stylesheets %}{% endblock %}
+    </head>
+
+    <body>
+
+        <header>
+            <div id="main" class="duplicate">
+                <ul class="nav">
+                    
+                    <li>
+                        <a href="#" title="Home">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <span class="text">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="About">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-leaf fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <span class="text">About</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Contact">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <span class="text">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="stickyContent"></div>
+        </header>
+        
+        <div class="contentWrap">
+<div class="content">
+  <h1>Sticky Header Visual Trick</h1>
+  <p>Sticky headers seem to be very popular now, but most of them rely on scroll events. One bad thing about relying on the scrolling event is that mobile safari doesn't execute the function that is attached to the event until after the browser is done scrolling. There is also the <code>position:sticky</code>, but it isn't widely supported yet.</p>
+  <p>What you see here is a little visual trick (hack) to do something similar to what you might see in a sticky header. This requires two headers in the markup. This is probably really bad for SEO. Anyways, I have the JS duplicate the menu markup so I don't have to write it twice. The main header is <code>position:relative</code> while the sticky header is <code>position:fixed</code>. The main one has a higher z-index that the sticky header.</p>
+  <p>I find that the interaction looks better when the main header is much bigger than the sticky one. Also, having more space between the main header and the content is better. Also, the page needs to be long enough so that the main header clears when you scroll all the way.</p>
+</div>
+</div>
+        <section>
+            {% block body %}
+            {% endblock %}
+        </section>
+    </body>
+
+
+    {#{% javascripts
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/tooltip.js'
+    '@MopaBootstrapBundle/Resources/public/bootstrap/js/*.js'
+    '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js'
+    '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-subnav.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}#}
+    
+    <script type="text/javascript" src="{{ asset('bundles/sitefront/js/jquery-1.11.1.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/sitefront/js/jquery-ui.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/sitefront/js/header.js') }}"></script>
+    
+</body>
+</html>

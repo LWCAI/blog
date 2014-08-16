@@ -1,1 +1,15 @@
-Hello {{ name }}!
+{% extends 'SiteFrontBundle::layout.html.twig' %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+
+{% block body-%}
+    Hello {{ name }}!
+{% endblock body-%}
